@@ -38,7 +38,6 @@ export default function AlbumForm(){
             imageList:[],
             }
         );
-        return docRef
 
         // notification for new album
         toast.success("New Album added!.");
@@ -46,6 +45,7 @@ export default function AlbumForm(){
         // clear values inside form after submission and focusing on input box
         nameRef.current.value="";
         nameRef.current.focus();
+        return docRef
     }
 
     return(

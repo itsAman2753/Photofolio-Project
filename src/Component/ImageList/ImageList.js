@@ -53,7 +53,7 @@ export default function ImageList(props){
             setImageList(data);
         });
         return ()=>{unsub()}
-    },[]);
+    });
     
 
     // deleting an image from list
@@ -147,7 +147,7 @@ export default function ImageList(props){
                         <img
                             className="lightbox-image"
                             src={imageList[currentImageIndex].link}
-                            alt={`Image-${currentImageIndex}`}
+                            alt={`${currentImageIndex}`}
                         />
                     </div>
                 </div>
