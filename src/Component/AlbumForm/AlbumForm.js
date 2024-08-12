@@ -38,6 +38,7 @@ export default function AlbumForm(){
             imageList:[],
             }
         );
+        return docRef
 
         // notification for new album
         toast.success("New Album added!.");

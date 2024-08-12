@@ -29,21 +29,23 @@ export default function AlbumList(){
 
 
     // get data from Database when the app gets render
-    useEffect(()=>{
-
-        // getting realtime updates from database
+    useEffect(() => {
+        // Subscribe to the "album" collection in Firestore
         const unsub = onSnapshot(collection(db, "album"), (snapShot) => {
-            const card = snapShot.docs.map((doc) => {
-                return{
-                    id:doc.id,
-                    ...doc.data()
-                }
-            });
-            console.log(card);
-            // storing all the albums within local state variable
-            setAlbumList(card);
+          const card = snapShot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+        //   console.log(card);
+          // Update the local state with the albums
+          setAlbumList(card);
         });
-    },[]);
+    
+        // Cleanup function to unsubscribe from the snapshot listener
+        return () => {
+          unsub();
+        };
+      }, []);
 
 
     return(

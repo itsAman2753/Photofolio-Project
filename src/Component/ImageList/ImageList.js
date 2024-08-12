@@ -52,7 +52,9 @@ export default function ImageList(props){
             const data=doc.data().imageList;      
             setImageList(data);
         });
+        return ()=>{unsub()}
     },[]);
+    
 
     // deleting an image from list
     async function handleImageDelete(image){
@@ -145,7 +147,7 @@ export default function ImageList(props){
                         <img
                             className="lightbox-image"
                             src={imageList[currentImageIndex].link}
-                            alt={`Image ${currentImageIndex}`}
+                            alt={`Image-${currentImageIndex}`}
                         />
                     </div>
                 </div>

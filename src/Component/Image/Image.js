@@ -15,7 +15,7 @@ export default function Image(props){
                 {/* showing image */}
                 <div className={styles.imageBox}>
                     <img src={image.link} 
-                        alt="image"  
+                        alt="image card"  
                         onClick={() => openLightbox(index)}/>
                 </div>
 
